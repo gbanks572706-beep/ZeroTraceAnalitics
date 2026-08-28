@@ -1,0 +1,86 @@
+/* =================================
+ZERO TRACE ANALYTICS
+NAVBAR SYSTEM
+================================= */
+
+.navbar {
+  width: 100%;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 20px 5%;
+
+  background: rgba(5, 8, 22, 0.95);
+
+  border-bottom: 1px solid var(--border);
+
+  position: sticky;
+
+  top: 0;
+
+  z-index: 1000;
+}
+
+/* LOGO */
+
+.logo {
+  font-size: 28px;
+
+  font-weight: 900;
+
+  letter-spacing: 2px;
+
+  color: var(--text-primary);
+}
+
+.logo span {
+  color: var(--primary);
+}
+
+/* NAV LINKS */
+
+.nav-links {
+  display: flex;
+
+  align-items: center;
+
+  gap: 25px;
+}
+
+.nav-links a {
+  color: var(--text-secondary);
+
+  font-weight: 600;
+
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+/* REGISTER BUTTON */
+
+.register-btn {
+  background: var(--primary);
+
+  color: #000 !important;
+
+  padding: 10px 20px;
+
+  border-radius: 8px;
+}
+
+.register-btn:hover {
+  opacity: 0.8;
+}
+
+/* LOGOUT BUTTON STYLE IF GENERATED */
+
+#logoutNav {
+  color: #ff6464;
+}

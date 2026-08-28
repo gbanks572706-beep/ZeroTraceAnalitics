@@ -1,0 +1,80 @@
+/* =================================
+ZERO TRACE ANALYTICS
+RESPONSIVE SYSTEM
+================================= */
+
+/* ================================
+TABLETS
+================================ */
+
+@media (max-width: 900px) {
+  .navbar {
+    padding: 20px 4%;
+  }
+
+  .nav-links {
+    gap: 15px;
+  }
+
+  .logo {
+    font-size: 24px;
+  }
+}
+
+/* ================================
+MOBILE DEVICES
+================================ */
+
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+
+    gap: 20px;
+
+    padding: 20px;
+  }
+
+  .nav-links {
+    width: 100%;
+
+    flex-direction: column;
+
+    gap: 15px;
+
+    text-align: center;
+  }
+
+  .nav-links a {
+    width: 100%;
+
+    padding: 10px;
+  }
+
+  .register-btn {
+    display: block;
+  }
+
+  /* BUTTONS */
+
+  button,
+  .primary-btn,
+  .vip-btn {
+    width: 100%;
+  }
+
+  /* CONTAINERS */
+
+  .container {
+    width: 92%;
+  }
+
+  /* FOOTER */
+
+  .footer {
+    padding: 40px 20px;
+  }
+
+  .footer-logo {
+    font-size: 24px;
+  }
+}

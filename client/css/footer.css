@@ -1,0 +1,90 @@
+/* =================================
+ZERO TRACE ANALYTICS
+FOOTER SYSTEM
+================================= */
+
+.footer {
+  width: 100%;
+
+  margin-top: 80px;
+
+  padding: 40px 5%;
+
+  background: var(--bg-secondary);
+
+  border-top: 1px solid var(--border);
+
+  text-align: center;
+}
+
+.footer-logo {
+  font-size: 26px;
+
+  font-weight: 900;
+
+  letter-spacing: 2px;
+
+  color: var(--text-primary);
+}
+
+.footer-logo span {
+  color: var(--primary);
+}
+
+.footer p {
+  margin-top: 12px;
+
+  color: var(--text-secondary);
+
+  font-size: 14px;
+}
+/* =================================
+ZERO TRACE ANALYTICS
+FOOTER SYSTEM
+================================= */
+
+.footer {
+  width: 100%;
+
+  margin-top: 80px;
+
+  padding: 50px 5%;
+
+  background: var(--bg-secondary);
+
+  border-top: 1px solid var(--border);
+
+  text-align: center;
+
+  animation: fadeIn 0.8s ease;
+}
+
+.footer-logo {
+  font-size: 28px;
+
+  font-weight: 900;
+
+  letter-spacing: 2px;
+
+  color: var(--text-primary);
+}
+
+.footer-logo span {
+  color: var(--primary);
+}
+
+.footer p {
+  margin-top: 15px;
+
+  color: var(--text-secondary);
+
+  font-size: 14px;
+}
+
+/* FOOTER HOVER EFFECT */
+
+.footer-logo:hover {
+  text-shadow: 0 0 10px var(--primary);
+
+  transition: 0.3s ease;
+}

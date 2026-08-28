@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>ZeroTraceAnalytics Dashboard</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+  </head>
+
+  <body>
+    <header class="dashboard-header">
+      <div class="logo">ZERO<span>TRACE</span></div>
+
+      <button id="logoutBtn">Logout</button>
+    </header>
+
+    <section class="dashboard-container">
+      <div class="welcome-card">
+        <h2 id="welcomeUser">Welcome</h2>
+
+        <div class="profile-info">
+          <p>
+            <strong>Email:</strong>
+            <span id="userEmail">Loading...</span>
+          </p>
+
+          <p>
+            <strong>Role:</strong>
+            <span id="userRole">Loading...</span>
+          </p>
+
+          <p>
+            <strong>VIP Status:</strong>
+            <span id="vipStatus">Loading...</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="dashboard-actions">
+        <a href="free.html">
+          <button>Free Tips</button>
+        </a>
+
+        <a href="vip-subscription.html">
+          <button>👑 VIP Access</button>
+        </a>
+
+        <a href="history.html">
+          <button>📜 Prediction History</button>
+        </a>
+
+        <a href="profile.html">
+          <button>⚙️ Profile</button>
+        </a>
+      </div>
+
+      <div class="vip-dashboard-card">
+        <h3>👑 VIP Membership</h3>
+
+        <div id="vipPlans">Loading VIP plans...</div>
+      </div>
+
+      <div class="prediction-summary-card">
+        <h3>📊 Prediction Performance</h3>
+
+        <div class="stats-grid">
+          <div class="stat-box">
+            <h4>Total</h4>
+            <span id="totalPredictions">0</span>
+          </div>
+
+          <div class="stat-box">
+            <h4>Won</h4>
+            <span id="wonPredictions">0</span>
+          </div>
+
+          <div class="stat-box">
+            <h4>Lost</h4>
+            <span id="lostPredictions">0</span>
+          </div>
+
+          <div class="stat-box">
+            <h4>Pending</h4>
+            <span id="pendingPredictions">0</span>
+          </div>
+
+          <div class="stat-box">
+            <h4>Win Rate</h4>
+            <span id="predictionWinRate">0%</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="js/config.js"></script>
+
+    <script src="js/dashboard.js"></script>
+
+    <script src="js/auth.js"></script>
+  </body>
+</html>

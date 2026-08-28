@@ -1,0 +1,100 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>VIP Predictions | ZeroTraceAnalytics</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <link rel="stylesheet" href="css/tips.css" />
+  </head>
+
+  <body>
+    <header class="navbar">
+      <div class="logo">ZERO<span>TRACE</span></div>
+
+      <nav class="nav-links">
+        <a href="index.html"> Home </a>
+
+        <a href="free.html"> Free Tips </a>
+
+        <a href="vip.html"> VIP </a>
+
+        <a href="dashboard.html"> Dashboard </a>
+      </nav>
+    </header>
+
+    <section class="tips-page">
+      <p class="section-tag">ELITE MEMBERSHIP</p>
+
+      <h1>VIP Football Predictions</h1>
+
+      <!-- VIP MEMBER SUMMARY -->
+
+      <div class="vip-summary">
+        <div class="vip-card">
+          <h3>👤 VIP Membership</h3>
+
+          <p>
+            <strong>Plan:</strong>
+            <span id="vip-plan"> Loading... </span>
+          </p>
+
+          <p>
+            <strong>Status:</strong>
+            <span id="vip-status"> Checking... </span>
+          </p>
+
+          <p>
+            <strong>Expires:</strong>
+            <span id="vip-expiry"> -- </span>
+          </p>
+        </div>
+      </div>
+
+      <!-- DATE SELECTOR -->
+
+      <div class="date-selector">
+        <button id="vip-date-toggle">
+          📅 Today
+
+          <span>▾</span>
+        </button>
+
+        <div class="date-menu">
+          <button data-date="today">Today</button>
+
+          <button data-date="yesterday">Yesterday</button>
+
+          <button data-date="tomorrow">Tomorrow</button>
+        </div>
+      </div>
+
+      <h3 class="vip-section-title">Available VIP Sections</h3>
+
+      <div class="tip-buttons" id="vip-sections-menu">
+        <p>Loading your VIP access...</p>
+      </div>
+
+      <div id="vip-container">
+        <!-- VIP predictions load here -->
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-logo">ZERO<span>TRACE</span></div>
+
+      <p>AI Powered Football Intelligence Platform</p>
+    </footer>
+
+    <script src="js/config.js"></script>
+
+    <script src="js/vip.js"></script>
+
+    <script src="js/auth.js"></script>
+  </body>
+</html>

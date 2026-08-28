@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>ZeroTrace Analytics | Admin Dashboard</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/admin.css" />
+  </head>
+
+  <body>
+    <div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+    <div class="admin-layout">
+      <!-- ==========================
+         SIDEBAR
+    ========================== -->
+
+      <aside class="sidebar">
+        <div class="sidebar-logo">
+          <h2>ZERO<span>TRACE</span></h2>
+          <p>Admin Panel</p>
+        </div>
+
+        <nav class="sidebar-menu">
+          <button class="menu-btn active" data-section="dashboardSection">
+            📊 Dashboard
+          </button>
+
+          <button class="menu-btn" data-section="addPredictionSection">
+            ➕ Add Prediction
+          </button>
+
+          <button class="menu-btn" data-section="managePredictionSection">
+            ⚽ Manage Predictions
+          </button>
+
+          <button class="menu-btn" data-section="manageSectionsSection">
+            📂 Manage Sections
+          </button>
+
+          <button class="menu-btn" data-section="vipSection">
+            👑 VIP Users
+          </button>
+
+          <button class="menu-btn" data-section="vipPlansSection">
+            💎 VIP Plans
+          </button>
+
+          <button class="menu-btn" data-section="usersSection">👥 Users</button>
+
+          <button class="menu-btn" data-section="analyticsSection">
+            📈 Analytics
+          </button>
+
+          <button class="menu-btn" data-section="settingsSection">
+            ⚙ Settings
+          </button>
+        </nav>
+      </aside>
+
+      <!-- ==========================
+         MAIN CONTENT
+    ========================== -->
+
+      <main class="admin-main">
+        <!-- HEADER -->
+
+        <header class="admin-header">
+          <button id="sidebarToggle" class="sidebar-toggle">☰</button>
+
+          <h1>ZeroTrace Analytics Admin</h1>
+
+          <button id="adminLogout">Logout</button>
+        </header>
+
+        <!-- DASHBOARD -->
+
+        <section id="dashboardSection" class="admin-section active-section">
+          <h2>Dashboard Overview</h2>
+
+          <div class="admin-stats">
+            <div class="admin-card">
+              <h3>Total Users</h3>
+
+              <p id="totalUsers">0</p>
+            </div>
+
+            <div class="admin-card">
+              <h3>VIP Members</h3>
+
+              <p id="vipUsers">0</p>
+            </div>
+
+            <div class="admin-card">
+              <h3>Total Predictions</h3>
+
+              <p id="totalPredictions">0</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ADD PREDICTION -->
+
+        <section id="addPredictionSection" class="admin-section">
+          <h2>Add Prediction</h2>
+
+          <form id="predictionForm">
+            <input id="home_team" placeholder="Home Team" required />
+
+            <input id="away_team" placeholder="Away Team" required />
+
+            <input id="league" placeholder="League" required />
+
+            <input
+              id="prediction_type"
+              placeholder="Prediction Type"
+              required
+            />
+
+            <input id="prediction" placeholder="Prediction" required />
+
+            <input
+              type="number"
+              step="0.01"
+              id="odds"
+              placeholder="Odds"
+              required
+            />
+
+            <input
+              type="number"
+              id="confidence"
+              placeholder="Confidence %"
+              required
+            />
+
+            <select id="tip_category">
+              <option value="">Select Category</option>
+
+              <option value="FREE">FREE</option>
+
+              <option value="VIP">VIP</option>
+            </select>
+
+            <select id="tip_section">
+              <option value="">Select Tip Section</option>
+            </select>
+
+            <input type="date" id="match_date" required />
+
+            <button type="submit">Add Prediction</button>
+          </form>
+        </section>
+
+        <!-- MANAGE PREDICTIONS -->
+
+        <section id="managePredictionSection" class="admin-section">
+          <h2>Manage Predictions</h2>
+
+          <div id="predictionList"></div>
+        </section>
+
+        <!-- ==========================
+VIP SECTION PLANS MANAGEMENT
+========================== -->
+
+        <section id="vipPlansSection" class="admin-section">
+          <h2>💎 Manage VIP Section Plans</h2>
+
+          <form id="vipPlanForm">
+            <select id="vipPlanSection" required>
+              <option value="">Select VIP Section</option>
+            </select>
+
+            <input
+              id="vipPlanPrice"
+              type="number"
+              placeholder="Price GH₵"
+              required
+            />
+
+            <input
+              id="vipPlanDuration"
+              type="number"
+              placeholder="Duration Days"
+              required
+            />
+
+            <select id="vipPlanStatus">
+              <option value="active">Active</option>
+
+              <option value="inactive">Inactive</option>
+            </select>
+
+            <button type="submit">Create VIP Plan</button>
+          </form>
+
+          <div id="vipPlansList">
+            <p>Loading VIP plans...</p>
+          </div>
+        </section>
+
+        <!-- ==========================
+     MANAGE SECTIONS
+========================== -->
+
+        <section id="manageSectionsSection" class="admin-section">
+          <h2>📂 Manage Tip Sections</h2>
+
+          <button id="addSectionBtn" class="add-section-btn">
+            ➕ Add New Section
+          </button>
+
+          <div id="sectionsList">
+            <p>Loading sections...</p>
+          </div>
+        </section>
+
+        <!-- ==========================
+     ADD SECTION MODAL
+========================== -->
+
+        <div id="sectionModal" class="modal">
+          <div class="modal-content">
+            <span id="closeSectionModal" class="close"> &times; </span>
+
+            <h2>Add New Section</h2>
+
+            <form id="sectionForm">
+              <input id="sectionName" placeholder="Section Name" required />
+
+              <select id="sectionCategory">
+                <option value="FREE">FREE</option>
+
+                <option value="VIP">VIP</option>
+              </select>
+
+              <select id="sectionStatus">
+                <option value="active">Active</option>
+
+                <option value="inactive">Inactive</option>
+              </select>
+
+              <button type="submit">Save Section</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- ==========================
+     EDIT SECTION MODAL
+========================== -->
+
+        <div id="editSectionModal" class="modal">
+          <div class="modal-content">
+            <span id="closeEditSectionModal" class="close"> &times; </span>
+
+            <h2>Edit Section</h2>
+
+            <form id="editSectionForm">
+              <input type="hidden" id="editSectionId" />
+
+              <input id="editSectionName" placeholder="Section Name" required />
+
+              <select id="editSectionCategory">
+                <option value="FREE">FREE</option>
+
+                <option value="VIP">VIP</option>
+              </select>
+
+              <select id="editSectionStatus">
+                <option value="active">Active</option>
+
+                <option value="inactive">Inactive</option>
+              </select>
+
+              <button type="submit">Save Changes</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- VIP USERS MANAGEMENT -->
+
+        <section id="vipSection" class="admin-section">
+          <h2>👑 VIP Users Management</h2>
+
+          <div id="vipUsersList">
+            <p>Loading VIP users...</p>
+          </div>
+        </section>
+
+        <!-- USERS -->
+
+        <section id="usersSection" class="admin-section">
+          <h2>👥 Users Management</h2>
+
+          <div id="usersList">
+            <p>Loading users...</p>
+          </div>
+        </section>
+
+        <!-- ANALYTICS -->
+
+        <section id="analyticsSection" class="admin-section">
+          <h2>Analytics</h2>
+
+          <p>Charts and reports will appear here.</p>
+        </section>
+
+        <!-- SETTINGS -->
+
+        <section id="settingsSection" class="admin-section">
+          <h2>Settings</h2>
+
+          <p>Admin settings will appear here.</p>
+        </section>
+      </main>
+    </div>
+
+    <!-- EDIT MODAL -->
+
+    <div id="editModal" class="modal">
+      <div class="modal-content">
+        <span id="closeModal" class="close">&times;</span>
+
+        <h2>Edit Prediction</h2>
+
+        <form id="editPredictionForm">
+          <input type="hidden" id="editId" />
+
+          <label>Prediction</label>
+
+          <input id="editPrediction" required />
+
+          <label>Odds</label>
+
+          <input id="editOdds" required />
+
+          <label>Confidence</label>
+
+          <input type="number" id="editConfidence" required />
+
+          <label>Status</label>
+
+          <select id="editStatus">
+            <option value="pending">Pending</option>
+
+            <option value="won">Won</option>
+
+            <option value="lost">Lost</option>
+
+            <option value="void">Void</option>
+          </select>
+
+          <button type="submit">Save Changes</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+
+    <script src="js/adminSections.js"></script>
+
+    <script src="js/adminVipPlans.js"></script>
+
+    <script src="js/adminUsers.js"></script>
+
+    <script src="js/adminVipUsers.js"></script>
+
+    <script src="js/auth.js"></script>
+    <script src="js/config.js"></script>
+
+    <script src="js/admin.js"></script>
+
+    <script src="js/adminSections.js"></script>
+
+    <script src="js/adminVipPlans.js"></script>
+
+    <script src="js/adminUsers.js"></script>
+
+    <script src="js/adminVipUsers.js"></script>
+
+    <script src="js/auth.js"></script>
+  </body>
+</html>

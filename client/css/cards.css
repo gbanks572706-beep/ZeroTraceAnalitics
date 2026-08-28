@@ -1,0 +1,142 @@
+/* ==========================
+   FEATURE SECTION
+   ZERO TRACE ANALYTICS
+========================== */
+
+.features {
+  padding: 90px 8%;
+
+  text-align: center;
+
+  background: #0b0b0b;
+}
+
+/* SMALL TITLE */
+
+.section-tag {
+  color: #39ff14;
+
+  font-size: 14px;
+
+  letter-spacing: 3px;
+
+  font-weight: bold;
+
+  margin-bottom: 15px;
+}
+
+/* MAIN TITLE */
+
+.features h2 {
+  color: white;
+
+  font-size: 42px;
+
+  margin-bottom: 60px;
+}
+
+.features h2::after {
+  content: "";
+
+  display: block;
+
+  width: 90px;
+
+  height: 4px;
+
+  background: #39ff14;
+
+  margin: 20px auto;
+
+  border-radius: 20px;
+}
+
+/* ==========================
+   CARD GRID
+========================== */
+
+.feature-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 30px;
+}
+
+/* ==========================
+   FEATURE CARD
+========================== */
+
+.feature-card {
+  background: #111;
+
+  padding: 40px 30px;
+
+  border-radius: 20px;
+
+  border: 1px solid rgba(57, 255, 20, 0.25);
+
+  transition: 0.4s;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+.feature-card:hover {
+  transform: translateY(-12px);
+
+  border-color: #39ff14;
+
+  box-shadow: 0 0 25px rgba(57, 255, 20, 0.4);
+}
+
+/* ICON */
+
+.icon {
+  font-size: 45px;
+
+  margin-bottom: 20px;
+}
+
+/* CARD TITLE */
+
+.feature-card h3 {
+  color: #39ff14;
+
+  font-size: 25px;
+
+  margin-bottom: 15px;
+}
+
+/* CARD TEXT */
+
+.feature-card p {
+  color: #cccccc;
+
+  line-height: 1.7;
+
+  font-size: 16px;
+}
+
+/* GREEN LIGHT EFFECT */
+
+.feature-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: -60px;
+
+  right: -60px;
+
+  width: 140px;
+
+  height: 140px;
+
+  background: #39ff14;
+
+  opacity: 0.08;
+
+  border-radius: 50%;
+}

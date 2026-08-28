@@ -1,0 +1,147 @@
+/* =================================
+ZERO TRACE ANALYTICS
+GLOBAL BRAND STYLE
+================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: #050505;
+  color: white;
+}
+
+:root {
+  --primary: #00e5ff;
+  --secondary: #7c3aed;
+  --dark: #050505;
+  --card: #0f0f0f;
+  --text: #ffffff;
+  --muted: #999;
+
+  --glow: 0 0 20px rgba(0, 229, 255, 0.35);
+}
+
+button {
+  transition: 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-3px);
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+/* ==============================
+   MOBILE RESPONSIVE DESIGN
+   ZERO TRACE ANALYTICS
+============================== */
+
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  /* NAVBAR */
+
+  .navbar {
+    padding: 15px 20px;
+  }
+
+  .nav-links {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+  }
+
+  /* LOGO */
+
+  .logo {
+    font-size: 22px;
+  }
+
+  /* MAIN SECTIONS */
+
+  .tips-page {
+    padding: 30px 15px;
+  }
+
+  .tips-page h1 {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  /* BUTTON GROUPS */
+
+  .tip-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .tip-buttons button {
+    width: auto;
+    min-width: 120px;
+  }
+
+  /* DATE BUTTON */
+
+  .date-selector {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+
+  /* PREDICTION CARDS */
+
+  .prediction-card {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .teams {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+
+  .teams span {
+    font-size: 14px;
+  }
+
+  .details {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  /* VIP SUMMARY */
+
+  .vip-summary {
+    width: 100%;
+  }
+
+  .vip-card {
+    width: 100%;
+  }
+
+  /* FOOTER */
+
+  .footer {
+    text-align: center;
+    padding: 25px 15px;
+  }
+}

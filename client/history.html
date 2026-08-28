@@ -1,0 +1,95 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Prediction History | ZeroTraceAnalytics</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <link rel="stylesheet" href="css/tips.css" />
+  </head>
+
+  <body>
+    <header class="navbar">
+      <div class="logo">ZERO<span>TRACE</span></div>
+
+      <nav class="nav-links">
+        <a href="index.html"> Home </a>
+
+        <a href="free.html"> Free Tips </a>
+
+        <a href="vip.html"> VIP </a>
+
+        <a href="history.html"> History </a>
+      </nav>
+    </header>
+
+    <section class="tips-page">
+      <p class="section-tag">PERFORMANCE TRACKER</p>
+
+      <h1>Prediction History</h1>
+
+      <!-- HISTORY STATISTICS -->
+
+      <div class="history-stats">
+        <div class="stat-card">
+          <h3>Total Tips</h3>
+
+          <strong id="total-tips"> 0 </strong>
+        </div>
+
+        <div class="stat-card">
+          <h3>Won</h3>
+
+          <strong id="won-tips"> 0 </strong>
+        </div>
+
+        <div class="stat-card">
+          <h3>Lost</h3>
+
+          <strong id="lost-tips"> 0 </strong>
+        </div>
+
+        <div class="stat-card">
+          <h3>Pending</h3>
+
+          <strong id="pending-tips"> 0 </strong>
+        </div>
+
+        <div class="stat-card">
+          <h3>Win Rate</h3>
+
+          <strong id="win-rate"> 0% </strong>
+        </div>
+      </div>
+
+      <div class="history-filters">
+        <button class="history-filter active" data-filter="all">All</button>
+
+        <button class="history-filter" data-filter="won">Won</button>
+
+        <button class="history-filter" data-filter="lost">Lost</button>
+
+        <button class="history-filter" data-filter="pending">Pending</button>
+      </div>
+
+      <div id="history-container">Loading history...</div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-logo">ZERO<span>TRACE</span></div>
+
+      <p>AI Powered Football Intelligence Platform</p>
+    </footer>
+
+    <script src="js/config.js"></script>
+
+    <script src="js/history.js"></script>
+
+    <script src="js/auth.js"></script>
+  </body>
+</html>

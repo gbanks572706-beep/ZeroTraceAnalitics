@@ -1,0 +1,247 @@
+/* =================================
+ZERO TRACE ANALYTICS
+HOME PAGE
+================================= */
+
+/* HERO */
+
+.hero {
+  min-height: 85vh;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 50px;
+
+  padding: 80px 5%;
+}
+
+.hero-content {
+  max-width: 600px;
+
+  animation: fadeIn 0.8s ease;
+}
+
+.hero-tag {
+  color: var(--primary);
+
+  font-weight: bold;
+
+  letter-spacing: 2px;
+}
+
+.hero h1 {
+  font-size: 55px;
+
+  line-height: 1.1;
+
+  margin: 20px 0;
+}
+
+.hero h1 span {
+  display: block;
+
+  color: var(--primary);
+}
+
+.hero-description {
+  color: var(--text-secondary);
+
+  font-size: 18px;
+
+  line-height: 1.7;
+}
+
+/* HERO BUTTONS */
+
+.hero-buttons {
+  display: flex;
+
+  gap: 20px;
+
+  margin-top: 35px;
+}
+
+.secondary-btn {
+  background: transparent;
+
+  color: white;
+
+  border: 1px solid var(--primary);
+
+  padding: 12px 25px;
+
+  border-radius: 8px;
+}
+
+.secondary-btn:hover {
+  background: var(--primary);
+
+  color: #000;
+}
+
+/* AI ENGINE CARD */
+
+.hero-card {
+  width: 400px;
+
+  background: var(--bg-secondary);
+
+  border: 1px solid var(--border);
+
+  border-radius: 20px;
+
+  padding: 25px;
+
+  animation: glowPulse 3s infinite;
+}
+
+.card-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  margin-bottom: 30px;
+}
+
+.card-header span {
+  color: var(--success);
+}
+
+.stats {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 15px;
+}
+
+.stat-box {
+  background: #020617;
+
+  padding: 20px;
+
+  border-radius: 12px;
+
+  text-align: center;
+}
+
+.stat-box h2 {
+  color: var(--primary);
+}
+
+.stat-box p {
+  color: var(--text-secondary);
+
+  font-size: 13px;
+}
+
+/* FEATURES */
+
+.features {
+  padding: 80px 5%;
+
+  text-align: center;
+}
+
+.section-tag {
+  color: var(--primary);
+
+  letter-spacing: 2px;
+}
+
+.features h2 {
+  font-size: 35px;
+
+  margin: 20px 0 40px;
+}
+
+.feature-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 25px;
+}
+
+.feature-card {
+  background: var(--bg-secondary);
+
+  padding: 30px;
+
+  border-radius: 15px;
+
+  border: 1px solid var(--border);
+
+  transition: 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+
+  border-color: var(--primary);
+}
+
+.icon {
+  font-size: 40px;
+}
+
+/* VIP SECTION */
+
+.vip-section {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 80px 5%;
+
+  gap: 40px;
+}
+
+.vip-card {
+  background: var(--bg-secondary);
+
+  padding: 30px;
+
+  border-radius: 20px;
+
+  border: 1px solid var(--vip-gold);
+}
+
+.vip-card li {
+  margin: 15px 0;
+
+  color: var(--text-secondary);
+}
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+  .hero,
+  .vip-section {
+    flex-direction: column;
+
+    text-align: center;
+  }
+
+  .hero-card {
+    width: 100%;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+  }
+}

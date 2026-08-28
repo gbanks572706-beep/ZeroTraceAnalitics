@@ -1,0 +1,83 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Free Football Tips | ZeroTraceAnalytics</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <link rel="stylesheet" href="css/tips.css" />
+  </head>
+
+  <body>
+    <header class="navbar">
+      <div class="logo">ZERO<span>TRACE</span></div>
+
+      <nav class="nav-links">
+        <a href="index.html"> Home </a>
+
+        <a href="free.html"> Free Tips </a>
+
+        <a href="vip.html"> VIP </a>
+
+        <a href="login.html"> Login </a>
+      </nav>
+    </header>
+
+    <section class="tips-page">
+      <p class="section-tag">FREE PREDICTIONS</p>
+
+      <h1>Today's Free Football Tips</h1>
+
+      <div class="date-selector">
+        <button id="date-toggle">
+          📅 Today
+
+          <span> ▾ </span>
+        </button>
+
+        <div class="date-menu">
+          <button data-date="today">Today</button>
+
+          <button data-date="yesterday">Yesterday</button>
+
+          <button data-date="tomorrow">Tomorrow</button>
+        </div>
+      </div>
+
+      <div class="tip-buttons">
+        <button data-section="Daily Sure Odds">Daily Sure Odds</button>
+
+        <button data-section="5+ Odds">5+ Odds</button>
+
+        <button data-section="High Maxbet Odds">High Maxbet Odds</button>
+
+        <button data-section="Over-Under">Over-Under</button>
+
+        <button data-section="Single Tips">Single Tips</button>
+
+        <button data-section="Bonus Tips">Bonus Tips</button>
+      </div>
+
+      <div id="prediction-container">
+        <!-- Predictions will load here -->
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-logo">ZERO<span>TRACE</span></div>
+
+      <p>AI Powered Football Intelligence Platform</p>
+    </footer>
+
+    <script src="js/config.js"></script>
+
+    <script src="js/free.js"></script>
+
+    <script src="js/auth.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1514 @@
+/* ==========================================
+ ZERO TRACE ANALYTICS
+ CLEAN RESPONSIVE ADMIN PANEL
+========================================== */
+
+:root {
+  --primary: #00e5ff;
+  --dark: #050505;
+  --card: #101010;
+  --border: rgba(0, 229, 255, 0.2);
+  --danger: #ff4040;
+  --white: #fff;
+  --muted: #999;
+}
+
+/* =====================
+ RESET
+===================== */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--dark);
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+/* =====================
+ LAYOUT
+===================== */
+
+.admin-layout {
+  min-height: 100vh;
+  display: flex;
+}
+
+/* =====================
+ SIDEBAR
+===================== */
+
+.sidebar {
+  width: 270px;
+
+  height: 100vh;
+
+  position: fixed;
+
+  left: 0;
+  top: 0;
+
+  background: #090909;
+
+  border-right: 1px solid var(--border);
+
+  overflow-y: auto;
+
+  z-index: 2000;
+}
+
+.sidebar-logo {
+  padding: 30px 20px;
+
+  text-align: center;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar-logo h2 {
+  margin: 0;
+
+  font-size: 30px;
+}
+
+.sidebar-logo span {
+  color: var(--primary);
+}
+
+.sidebar-logo p {
+  color: #aaa;
+}
+
+.sidebar-menu {
+  padding: 20px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.menu-btn {
+  width: 100%;
+
+  padding: 14px;
+
+  border-radius: 12px;
+
+  border: 0;
+
+  background: none;
+
+  color: #ccc;
+
+  cursor: pointer;
+
+  text-align: left;
+}
+
+.menu-btn:hover {
+  background: #111;
+
+  color: white;
+}
+
+.menu-btn.active {
+  background: var(--primary);
+
+  color: black;
+
+  font-weight: bold;
+}
+
+/* =====================
+ MAIN
+===================== */
+
+.admin-main {
+  margin-left: 270px;
+
+  width: calc(100% - 270px);
+
+  padding: 30px;
+}
+
+/* HEADER */
+
+.admin-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 30px;
+}
+
+.admin-header h1 {
+  font-size: 28px;
+}
+
+#adminLogout {
+  background: var(--danger);
+
+  color: white;
+
+  border: 0;
+
+  padding: 12px 25px;
+
+  border-radius: 25px;
+
+  cursor: pointer;
+}
+
+.sidebar-toggle {
+  display: none;
+}
+
+/* =====================
+ SECTIONS
+===================== */
+
+.admin-section {
+  display: none;
+}
+
+.active-section {
+  display: block;
+}
+
+/* =====================
+ CARDS
+===================== */
+
+.admin-card,
+.section-card,
+.admin-plan-card,
+.prediction-card {
+  background: var(--card);
+
+  border: 1px solid var(--border);
+
+  border-radius: 20px;
+
+  padding: 25px;
+
+  margin-bottom: 20px;
+}
+
+.admin-card:hover,
+.section-card:hover,
+.admin-plan-card:hover,
+.prediction-card:hover {
+  transform: translateY(-3px);
+}
+
+/* DASHBOARD */
+
+.admin-stats {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 20px;
+}
+
+.admin-card {
+  text-align: center;
+}
+
+.admin-card p {
+  color: var(--primary);
+
+  font-size: 40px;
+}
+
+/* =====================
+ FORMS
+===================== */
+
+form {
+  width: 100%;
+
+  max-width: 700px;
+
+  background: var(--card);
+
+  padding: 25px;
+
+  border-radius: 20px;
+
+  border: 1px solid var(--border);
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 15px;
+}
+
+input,
+select {
+  width: 100%;
+
+  padding: 14px;
+
+  background: #080808;
+
+  color: white;
+
+  border: 1px solid #333;
+
+  border-radius: 12px;
+}
+
+button {
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+/* FORM BUTTON */
+
+form button,
+.add-section-btn {
+  background: var(--primary);
+
+  color: black;
+
+  border: 0;
+
+  padding: 14px;
+
+  border-radius: 25px;
+
+  font-weight: bold;
+}
+
+/* =====================
+ SECTION CARDS
+===================== */
+
+#sectionsList,
+#vipPlansList {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+  gap: 20px;
+}
+
+.section-card h3,
+.admin-plan-card h3,
+.prediction-card h3 {
+  color: var(--primary);
+}
+
+/* =====================
+ BUTTON GROUPS
+===================== */
+
+.section-actions {
+  display: flex;
+
+  gap: 10px;
+
+  margin-top: 20px;
+}
+
+.section-actions button,
+.prediction-card button {
+  padding: 10px 18px;
+
+  border-radius: 20px;
+
+  border: 0;
+
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+.edit-btn {
+  background: var(--primary);
+
+  color: black;
+}
+
+.delete-btn {
+  background: var(--danger);
+
+  color: white;
+}
+
+/* =====================
+ MODAL
+===================== */
+
+.modal {
+  display: none;
+
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.8);
+
+  justify-content: center;
+
+  align-items: center;
+
+  z-index: 5000;
+}
+
+.modal-content {
+  width: 90%;
+
+  max-width: 420px;
+
+  background: #111;
+
+  padding: 25px;
+
+  border-radius: 20px;
+
+  border: 1px solid var(--primary);
+}
+/* ==========================================
+ SIDEBAR OVERLAY
+========================================== */
+
+.sidebar-overlay {
+  display: none;
+
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.55);
+
+  z-index: 1500;
+}
+
+.sidebar-overlay.active {
+  display: block;
+}
+/* =====================
+ TABLET
+===================== */
+
+@media (max-width: 900px) {
+  .sidebar {
+    transform: translateX(-100%);
+
+    transition: 0.3s;
+  }
+
+  .sidebar.active {
+    transform: translateX(0);
+  }
+
+  .sidebar-toggle {
+    display: block;
+
+    background: var(--primary);
+
+    border: 0;
+
+    padding: 10px;
+
+    border-radius: 10px;
+  }
+
+  .admin-main {
+    margin-left: 0;
+
+    width: 100%;
+
+    padding: 20px;
+  }
+
+  .admin-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-header h1 {
+    font-size: 20px;
+  }
+}
+
+/* =====================
+ MOBILE
+===================== */
+
+@media (max-width: 600px) {
+  .admin-header {
+    display: grid;
+
+    grid-template-columns: auto 1fr;
+
+    gap: 15px;
+  }
+
+  #adminLogout {
+    grid-column: 1/-1;
+
+    width: 100%;
+  }
+
+  .section-actions {
+    display: flex;
+
+    flex-direction: row;
+  }
+
+  .section-actions button {
+    flex: 1;
+
+    padding: 12px 5px;
+
+    font-size: 13px;
+  }
+
+  .prediction-card button {
+    width: 100%;
+
+    margin-top: 10px;
+  }
+
+  .admin-card p {
+    font-size: 30px;
+  }
+
+  form {
+    padding: 18px;
+  }
+
+  .admin-plan-card,
+  .section-card,
+  .prediction-card {
+    padding: 18px;
+  }
+}
+/* ==========================
+VIP PLAN ACTION BUTTONS
+========================== */
+
+.plan-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.plan-actions button {
+  padding: 10px 18px;
+
+  border: none;
+
+  border-radius: 20px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+.plan-actions .edit-btn {
+  background: #00e5ff;
+
+  color: #000;
+}
+
+.plan-actions .delete-btn {
+  background: #ff4040;
+
+  color: white;
+}
+
+@media (max-width: 500px) {
+  .plan-actions {
+    flex-direction: column;
+  }
+
+  .plan-actions button {
+    width: 100%;
+  }
+}
+/* ==========================================
+   ZERO TRACE ADMIN DASHBOARD UPGRADE
+   DASHBOARD OVERVIEW
+========================================== */
+
+/* Dashboard Title */
+
+#dashboardSection h2 {
+  font-size: 32px;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+}
+
+/* =====================
+   STAT CARDS UPGRADE
+===================== */
+
+.admin-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.admin-stats .admin-card {
+  position: relative;
+
+  background: linear-gradient(145deg, #111, #070707);
+
+  border: 1px solid rgba(0, 229, 255, 0.25);
+
+  min-height: 150px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  overflow: hidden;
+
+  transition: 0.3s ease;
+}
+
+/* Glow effect */
+
+.admin-stats .admin-card::before {
+  content: "";
+
+  position: absolute;
+
+  width: 120px;
+
+  height: 120px;
+
+  background: #00e5ff;
+
+  opacity: 0.08;
+
+  border-radius: 50%;
+
+  top: -50px;
+
+  right: -40px;
+}
+
+/* Hover */
+
+.admin-stats .admin-card:hover {
+  transform: translateY(-8px);
+
+  border-color: #00e5ff;
+
+  box-shadow: 0 0 25px rgba(0, 229, 255, 0.25);
+}
+
+/* Card Heading */
+
+.admin-stats .admin-card h3 {
+  font-size: 17px;
+
+  color: #ccc;
+
+  margin-bottom: 15px;
+}
+
+/* Number */
+
+.admin-stats .admin-card p {
+  margin: 0;
+
+  font-size: 48px;
+
+  font-weight: bold;
+
+  color: #00e5ff;
+
+  text-shadow: 0 0 15px rgba(0, 229, 255, 0.6);
+}
+
+/* =====================
+   HEADER UPGRADE
+===================== */
+
+.admin-header h1 {
+  font-size: 32px;
+
+  font-weight: 700;
+
+  background: linear-gradient(90deg, #ffffff, #00e5ff);
+
+  -webkit-background-clip: text;
+
+  color: transparent;
+}
+
+/* Logout button */
+
+#adminLogout {
+  padding: 14px 35px;
+
+  font-weight: bold;
+
+  box-shadow: 0 0 15px rgba(255, 64, 64, 0.4);
+}
+
+#adminLogout:hover {
+  box-shadow: 0 0 25px rgba(255, 64, 64, 0.7);
+}
+
+/* =====================
+   MOBILE DASHBOARD
+===================== */
+
+@media (max-width: 900px) {
+  #dashboardSection h2 {
+    font-size: 24px;
+  }
+
+  .admin-stats {
+    grid-template-columns: 1fr;
+
+    gap: 15px;
+  }
+
+  .admin-stats .admin-card {
+    min-height: 130px;
+  }
+
+  .admin-stats .admin-card p {
+    font-size: 40px;
+  }
+}
+/* ==========================================
+   USERS MANAGEMENT PAGE
+========================================== */
+
+/* Users Grid */
+
+#usersList {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+  gap: 25px;
+
+  margin-top: 25px;
+}
+
+/* User Cards */
+
+#usersList .admin-card {
+  background: linear-gradient(145deg, #111, #080808);
+
+  border: 1px solid rgba(0, 229, 255, 0.25);
+
+  border-radius: 22px;
+
+  padding: 25px;
+
+  position: relative;
+
+  transition: 0.3s ease;
+}
+
+#usersList .admin-card:hover {
+  transform: translateY(-6px);
+
+  border-color: #00e5ff;
+
+  box-shadow: 0 0 25px rgba(0, 229, 255, 0.2);
+}
+
+/* User Name */
+
+#usersList .admin-card h3 {
+  color: #00e5ff;
+
+  font-size: 22px;
+
+  margin-bottom: 20px;
+}
+
+/* Information */
+
+#usersList .admin-card p {
+  color: #ccc;
+
+  margin: 12px 0;
+
+  font-size: 14px;
+}
+
+#usersList .admin-card p strong {
+  color: white;
+}
+
+/* =====================
+   STATUS BADGE STYLE
+===================== */
+
+#usersList span {
+  padding: 5px 12px;
+
+  border-radius: 20px;
+
+  font-size: 12px;
+
+  font-weight: bold;
+}
+
+/* Role */
+
+#usersList span[id^="role"] {
+  background: #00e5ff;
+
+  color: #000;
+}
+
+/* Account Status */
+
+#usersList span[id^="status"] {
+  background: #1aff8c;
+
+  color: #000;
+}
+
+/* =====================
+   SELECT BOXES
+===================== */
+
+#usersList select {
+  margin-top: 12px;
+
+  background: #050505;
+
+  border: 1px solid #333;
+
+  color: white;
+}
+
+/* =====================
+   BUTTONS
+===================== */
+
+#usersList button {
+  margin-top: 12px;
+
+  margin-right: 8px;
+
+  padding: 10px 16px;
+
+  border: none;
+
+  border-radius: 20px;
+
+  cursor: pointer;
+
+  font-weight: bold;
+
+  background: #00e5ff;
+
+  color: #000;
+}
+
+#usersList button:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.5);
+}
+
+/* Different style for view button */
+
+#usersList button:nth-of-type(2) {
+  background: #222;
+
+  color: white;
+
+  border: 1px solid #00e5ff;
+}
+
+/* =====================
+   MOBILE USERS PAGE
+===================== */
+
+@media (max-width: 600px) {
+  #usersList {
+    grid-template-columns: 1fr;
+  }
+
+  #usersList .admin-card {
+    padding: 20px;
+  }
+
+  #usersList button {
+    width: 100%;
+
+    margin-right: 0;
+  }
+}
+/* ==========================================
+   VIP USERS MANAGEMENT PAGE
+   ZERO TRACE PREMIUM STYLE
+========================================== */
+
+/* VIP Grid */
+
+#vipUsersList {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+  gap: 25px;
+
+  margin-top: 25px;
+}
+
+/* VIP Cards */
+
+#vipUsersList .admin-card {
+  background: linear-gradient(145deg, #111, #080808);
+
+  border: 1px solid rgba(0, 229, 255, 0.35);
+
+  border-radius: 22px;
+
+  padding: 25px;
+
+  position: relative;
+
+  transition: 0.3s ease;
+}
+
+#vipUsersList .admin-card:hover {
+  transform: translateY(-6px);
+
+  border-color: #00e5ff;
+
+  box-shadow: 0 0 30px rgba(0, 229, 255, 0.25);
+}
+
+/* VIP User Name */
+
+#vipUsersList .admin-card h3 {
+  color: #00e5ff;
+
+  font-size: 22px;
+
+  margin-bottom: 20px;
+}
+
+/* Information */
+
+#vipUsersList .admin-card p {
+  color: #ccc;
+
+  margin: 12px 0;
+
+  font-size: 14px;
+}
+
+#vipUsersList .admin-card p strong {
+  color: white;
+}
+
+/* =====================
+   VIP STATUS
+===================== */
+
+#vipUsersList p:nth-of-type(4) {
+  color: #1aff8c;
+
+  font-weight: bold;
+}
+
+/* =====================
+   VIP ACTION BUTTONS
+===================== */
+
+.vip-actions {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  margin-top: 20px;
+}
+
+.vip-actions button {
+  padding: 10px 16px;
+
+  border: none;
+
+  border-radius: 20px;
+
+  cursor: pointer;
+
+  font-weight: bold;
+
+  background: #00e5ff;
+
+  color: #000;
+}
+
+.vip-actions button:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.5);
+}
+
+/* Cancel Button */
+
+.vip-actions button:last-child {
+  background: #ff4040;
+
+  color: white;
+}
+
+/* =====================
+   MOBILE VIP USERS
+===================== */
+
+@media (max-width: 600px) {
+  #vipUsersList {
+    grid-template-columns: 1fr;
+  }
+
+  #vipUsersList .admin-card {
+    padding: 20px;
+  }
+
+  .vip-actions {
+    flex-direction: column;
+  }
+
+  .vip-actions button {
+    width: 100%;
+  }
+}
+/* ==========================================
+   VIP PLANS MANAGEMENT PAGE
+   ZERO TRACE PREMIUM STYLE
+========================================== */
+
+/* VIP PLANS GRID */
+
+#vipPlansList {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+  gap: 25px;
+
+  margin-top: 30px;
+}
+
+/* VIP PLAN CARD */
+
+#vipPlansList .admin-plan-card {
+  background: linear-gradient(145deg, #111, #070707);
+
+  border: 1px solid rgba(0, 229, 255, 0.35);
+
+  border-radius: 22px;
+
+  padding: 25px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  transition: 0.3s ease;
+}
+
+#vipPlansList .admin-plan-card::before {
+  content: "";
+
+  position: absolute;
+
+  width: 120px;
+
+  height: 120px;
+
+  background: #00e5ff;
+
+  opacity: 0.08;
+
+  border-radius: 50%;
+
+  top: -50px;
+
+  right: -40px;
+}
+
+#vipPlansList .admin-plan-card:hover {
+  transform: translateY(-7px);
+
+  border-color: #00e5ff;
+
+  box-shadow: 0 0 30px rgba(0, 229, 255, 0.25);
+}
+
+/* PLAN TITLE */
+
+#vipPlansList .admin-plan-card h3 {
+  color: #00e5ff;
+
+  font-size: 24px;
+
+  margin-bottom: 20px;
+}
+
+/* PLAN DETAILS */
+
+#vipPlansList .admin-plan-card p {
+  color: #ccc;
+
+  margin: 12px 0;
+
+  font-size: 15px;
+}
+
+/* STATUS */
+
+#vipPlansList .admin-plan-card p:nth-of-type(3) {
+  color: #1aff8c;
+
+  font-weight: bold;
+}
+
+/* ==========================
+   PLAN ACTION BUTTONS
+========================== */
+
+#vipPlansList .plan-actions {
+  display: flex;
+
+  gap: 12px;
+
+  margin-top: 25px;
+}
+
+#vipPlansList .plan-actions button {
+  flex: 1;
+
+  padding: 12px;
+
+  border-radius: 20px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+/* EDIT */
+
+#vipPlansList .edit-btn {
+  background: #00e5ff;
+
+  color: #000;
+}
+
+/* DELETE */
+
+#vipPlansList .delete-btn {
+  background: #ff4040;
+
+  color: white;
+}
+
+#vipPlansList button:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  #vipPlansList {
+    grid-template-columns: 1fr;
+  }
+
+  #vipPlansList .plan-actions {
+    flex-direction: column;
+  }
+
+  #vipPlansList .plan-actions button {
+    width: 100%;
+  }
+}
+/* ==========================================
+   MANAGE TIP SECTIONS PAGE
+   ZERO TRACE PREMIUM STYLE
+========================================== */
+
+/* SECTION CONTAINER */
+
+#sectionsList {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+  gap: 25px;
+
+  margin-top: 30px;
+}
+
+/* SECTION HEADINGS
+FREE / VIP TITLE
+*/
+
+#sectionsList > h3 {
+  grid-column: 1/-1;
+
+  color: #00e5ff;
+
+  font-size: 24px;
+
+  margin-top: 20px;
+
+  border-bottom: 1px solid rgba(0, 229, 255, 0.2);
+
+  padding-bottom: 10px;
+}
+
+/* SECTION CARD */
+
+#sectionsList .section-card {
+  background: linear-gradient(145deg, #111, #080808);
+
+  border: 1px solid rgba(0, 229, 255, 0.3);
+
+  border-radius: 22px;
+
+  padding: 25px;
+
+  transition: 0.3s ease;
+
+  position: relative;
+}
+
+/* HOVER */
+
+#sectionsList .section-card:hover {
+  transform: translateY(-7px);
+
+  border-color: #00e5ff;
+
+  box-shadow: 0 0 30px rgba(0, 229, 255, 0.25);
+}
+
+/* SECTION NAME */
+
+#sectionsList .section-card h3 {
+  color: #00e5ff;
+
+  font-size: 23px;
+
+  margin-bottom: 20px;
+}
+
+/* DETAILS */
+
+#sectionsList .section-card p {
+  color: #ccc;
+
+  margin: 12px 0;
+
+  font-size: 15px;
+}
+
+/* CATEGORY BADGE */
+
+#sectionsList .section-card p:nth-of-type(1) {
+  color: white;
+}
+
+/* STATUS */
+
+#sectionsList .section-card p:nth-of-type(2) {
+  color: #1aff8c;
+
+  font-weight: bold;
+}
+
+/* =====================
+SECTION BUTTONS
+===================== */
+
+#sectionsList .section-actions {
+  display: flex;
+
+  gap: 12px;
+
+  margin-top: 25px;
+}
+
+#sectionsList .section-actions button {
+  flex: 1;
+
+  padding: 12px;
+
+  border-radius: 20px;
+
+  border: none;
+
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+/* EDIT */
+
+#sectionsList .edit-btn {
+  background: #00e5ff;
+
+  color: #000;
+}
+
+/* DELETE */
+
+#sectionsList .delete-btn {
+  background: #ff4040;
+
+  color: white;
+}
+
+/* BUTTON HOVER */
+
+#sectionsList button:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  #sectionsList {
+    grid-template-columns: 1fr;
+  }
+
+  #sectionsList .section-actions {
+    flex-direction: column;
+  }
+
+  #sectionsList .section-actions button {
+    width: 100%;
+  }
+}
+/* ==========================================
+   ZERO TRACE VIP USERS PREMIUM DASHBOARD
+========================================== */
+
+/* VIP PAGE HEADER */
+
+#vipSection h2 {
+  font-size: 32px;
+
+  margin-bottom: 30px;
+
+  background: linear-gradient(90deg, #ffffff, #00e5ff);
+
+  -webkit-background-clip: text;
+
+  color: transparent;
+}
+
+/* VIP USERS GRID */
+
+#vipUsersList {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+  gap: 25px;
+}
+
+/* VIP CARD */
+
+#vipUsersList .admin-card {
+  position: relative;
+
+  background: linear-gradient(145deg, #151515, #070707);
+
+  border: 1px solid rgba(0, 229, 255, 0.35);
+
+  border-radius: 25px;
+
+  padding: 30px;
+
+  overflow: hidden;
+
+  transition: 0.35s ease;
+}
+
+/* VIP GLOW */
+
+#vipUsersList .admin-card::before {
+  content: "";
+
+  position: absolute;
+
+  width: 150px;
+
+  height: 150px;
+
+  background: #00e5ff;
+
+  opacity: 0.08;
+
+  border-radius: 50%;
+
+  top: -60px;
+
+  right: -50px;
+}
+
+/* HOVER */
+
+#vipUsersList .admin-card:hover {
+  transform: translateY(-8px);
+
+  border-color: #00e5ff;
+
+  box-shadow: 0 0 35px rgba(0, 229, 255, 0.25);
+}
+
+/* USER NAME */
+
+#vipUsersList h3 {
+  font-size: 24px;
+
+  color: #00e5ff;
+
+  margin-bottom: 20px;
+}
+
+/* DETAILS */
+
+#vipUsersList p {
+  color: #bbb;
+
+  font-size: 15px;
+
+  margin: 14px 0;
+}
+
+#vipUsersList strong {
+  color: white;
+}
+
+/* VIP STATUS BADGE */
+
+#vipUsersList span {
+  display: inline-block;
+
+  padding: 6px 16px;
+
+  border-radius: 30px;
+
+  font-size: 12px;
+
+  font-weight: bold;
+}
+
+/* ACTIVE */
+
+.vip-active {
+  background: #00ff88;
+
+  color: #000;
+}
+
+/* EXPIRED */
+
+.vip-expired {
+  background: #ff4040;
+
+  color: white;
+}
+
+/* ACTION AREA */
+
+.vip-actions {
+  margin-top: 25px;
+
+  display: flex;
+
+  gap: 12px;
+}
+
+/* BUTTONS */
+
+.vip-actions button {
+  flex: 1;
+
+  padding: 12px;
+
+  border-radius: 25px;
+
+  border: none;
+
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+/* PRIMARY */
+
+.vip-actions button:first-child {
+  background: #00e5ff;
+
+  color: black;
+}
+
+/* CANCEL */
+
+.vip-actions button:last-child {
+  background: #ff4040;
+
+  color: white;
+}
+
+.vip-actions button:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.5);
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  #vipSection h2 {
+    font-size: 24px;
+  }
+
+  #vipUsersList .admin-card {
+    padding: 22px;
+  }
+
+  .vip-actions {
+    flex-direction: column;
+  }
+
+  .vip-actions button {
+    width: 100%;
+  }
+}

@@ -1,0 +1,428 @@
+/* =====================================
+   ZERO TRACE ANALYTICS
+   USER DASHBOARD STYLE
+===================================== */
+
+/* =========================
+   HEADER
+========================= */
+
+.dashboard-header {
+  width: 100%;
+
+  padding: 25px 8%;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  background: rgba(5, 5, 5, 0.85);
+
+  backdrop-filter: blur(15px);
+
+  border-bottom: 1px solid rgba(0, 229, 255, 0.25);
+}
+
+/* LOGO */
+
+.dashboard-header .logo {
+  font-size: 30px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+
+  color: white;
+}
+
+.dashboard-header .logo span {
+  color: #00e5ff;
+
+  text-shadow: 0 0 10px #00e5ff;
+}
+
+/* LOGOUT BUTTON */
+
+.dashboard-header button {
+  padding: 12px 30px;
+
+  border-radius: 30px;
+
+  border: 1px solid rgba(0, 229, 255, 0.5);
+
+  background: transparent;
+
+  color: #00e5ff;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.dashboard-header button:hover {
+  background: #00e5ff;
+
+  color: #050505;
+
+  box-shadow: 0 0 25px rgba(0, 229, 255, 0.7);
+
+  transform: translateY(-3px);
+}
+
+/* =========================
+   DASHBOARD BODY
+========================= */
+
+.dashboard-container {
+  min-height: calc(100vh - 100px);
+
+  padding: 70px 8%;
+
+  background:
+    radial-gradient(circle at top, rgba(0, 229, 255, 0.12), transparent 40%),
+    #050505;
+}
+
+/* =========================
+   WELCOME CARD
+========================= */
+
+.welcome-card {
+  max-width: 900px;
+
+  margin: auto;
+
+  padding: 45px;
+
+  border-radius: 25px;
+
+  background: rgba(15, 15, 20, 0.75);
+
+  backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(0, 229, 255, 0.25);
+
+  box-shadow: 0 0 35px rgba(0, 229, 255, 0.12);
+
+  animation: dashboardFloat 5s infinite ease-in-out;
+}
+
+@keyframes dashboardFloat {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.welcome-card h2 {
+  color: #00e5ff;
+
+  font-size: 36px;
+
+  margin-bottom: 15px;
+
+  text-shadow: 0 0 15px rgba(0, 229, 255, 0.7);
+}
+
+.welcome-card p {
+  color: #aaa;
+
+  font-size: 18px;
+}
+
+/* =========================
+   ACTION BUTTONS
+========================= */
+
+.dashboard-actions {
+  margin-top: 45px;
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 25px;
+
+  flex-wrap: wrap;
+}
+
+.dashboard-actions a {
+  text-decoration: none;
+}
+
+.dashboard-actions button {
+  width: 220px;
+
+  padding: 17px;
+
+  border-radius: 35px;
+
+  border: none;
+
+  cursor: pointer;
+
+  font-size: 17px;
+
+  font-weight: 700;
+
+  color: white;
+
+  background: linear-gradient(135deg, #00e5ff, #008cff);
+
+  transition: 0.35s;
+
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.25);
+}
+
+.dashboard-actions button:hover {
+  transform: translateY(-5px) scale(1.05);
+
+  box-shadow: 0 0 35px rgba(0, 229, 255, 0.75);
+}
+
+/* VIP BUTTON DIFFERENCE */
+
+.dashboard-actions a:nth-child(2) button {
+  background: linear-gradient(135deg, #008cff, #00e5ff);
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .dashboard-header {
+    padding: 20px;
+  }
+
+  .dashboard-header .logo {
+    font-size: 24px;
+  }
+
+  .dashboard-header button {
+    padding: 10px 20px;
+  }
+
+  .dashboard-container {
+    padding: 40px 20px;
+  }
+
+  .welcome-card {
+    padding: 30px 20px;
+  }
+
+  .welcome-card h2 {
+    font-size: 28px;
+  }
+
+  .dashboard-actions {
+    flex-direction: column;
+
+    align-items: center;
+  }
+
+  .dashboard-actions button {
+    width: 100%;
+
+    max-width: 320px;
+  }
+}
+/* =========================
+   PROFILE INFORMATION
+========================= */
+
+.profile-info {
+  margin-top: 25px;
+  display: grid;
+  gap: 15px;
+}
+
+.profile-info p {
+  background: rgba(255, 255, 255, 0.03);
+
+  padding: 15px 20px;
+
+  border-radius: 15px;
+
+  border: 1px solid rgba(0, 229, 255, 0.15);
+
+  color: #aaa;
+}
+
+.profile-info strong {
+  color: #00e5ff;
+}
+
+/* =========================
+   VIP DASHBOARD CARD
+========================= */
+
+.vip-dashboard-card {
+  max-width: 900px;
+
+  margin: 40px auto 0;
+
+  padding: 35px;
+
+  border-radius: 25px;
+
+  background: rgba(15, 15, 20, 0.75);
+
+  backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(0, 229, 255, 0.25);
+
+  box-shadow: 0 0 35px rgba(0, 229, 255, 0.12);
+}
+
+.vip-dashboard-card h3 {
+  color: #00e5ff;
+
+  font-size: 26px;
+
+  margin-bottom: 25px;
+}
+
+/* =========================
+   VIP PLAN ITEMS
+========================= */
+
+.vip-plan-item {
+  padding: 20px;
+
+  margin-bottom: 15px;
+
+  border-radius: 18px;
+
+  background: rgba(0, 229, 255, 0.05);
+
+  border: 1px solid rgba(0, 229, 255, 0.2);
+}
+
+.vip-plan-item h4 {
+  color: white;
+
+  font-size: 20px;
+
+  margin-bottom: 12px;
+}
+
+.vip-plan-item p {
+  color: #aaa;
+
+  margin-top: 8px;
+}
+
+.vip-plan-item span {
+  color: #00ff88;
+
+  font-weight: bold;
+}
+
+/* =========================
+   MOBILE VIP CARD
+========================= */
+
+@media (max-width: 768px) {
+  .vip-dashboard-card {
+    padding: 25px 20px;
+  }
+
+  .vip-plan-item {
+    padding: 15px;
+  }
+}
+/* =========================
+   PREDICTION ANALYTICS CARD
+========================= */
+
+.prediction-summary-card {
+  max-width: 900px;
+
+  margin: 40px auto 0;
+
+  padding: 35px;
+
+  border-radius: 25px;
+
+  background: rgba(15, 15, 20, 0.75);
+
+  backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(0, 229, 255, 0.25);
+
+  box-shadow: 0 0 35px rgba(0, 229, 255, 0.12);
+}
+
+.prediction-summary-card h3 {
+  color: #00e5ff;
+
+  font-size: 26px;
+
+  margin-bottom: 30px;
+}
+
+/* =========================
+   STATS GRID
+========================= */
+
+.stats-grid {
+  display: grid;
+
+  grid-template-columns: repeat(5, 1fr);
+
+  gap: 15px;
+}
+
+.stat-box {
+  padding: 25px 15px;
+
+  text-align: center;
+
+  border-radius: 18px;
+
+  background: rgba(0, 229, 255, 0.05);
+
+  border: 1px solid rgba(0, 229, 255, 0.15);
+}
+
+.stat-box h4 {
+  color: #aaa;
+
+  font-size: 15px;
+
+  margin-bottom: 12px;
+}
+
+.stat-box span {
+  color: #00e5ff;
+
+  font-size: 30px;
+
+  font-weight: 800;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat-box span {
+    font-size: 24px;
+  }
+}

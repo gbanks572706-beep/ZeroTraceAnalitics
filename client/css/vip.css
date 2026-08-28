@@ -1,0 +1,85 @@
+/* ==========================
+   VIP SECTION
+========================== */
+
+.vip-section {
+  padding: 100px 8%;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 50px;
+
+  background: #111;
+}
+
+.vip-content {
+  max-width: 550px;
+}
+
+.vip-content h2 {
+  color: white;
+
+  font-size: 42px;
+
+  margin-bottom: 20px;
+}
+
+.vip-content p {
+  color: #ccc;
+
+  line-height: 1.7;
+}
+
+.vip-btn {
+  margin-top: 30px;
+
+  padding: 15px 40px;
+
+  border: none;
+
+  border-radius: 30px;
+
+  background: #39ff14;
+
+  color: #000;
+
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+.vip-btn:hover {
+  background: white;
+
+  box-shadow: 0 0 30px #39ff14;
+}
+
+.vip-card {
+  background: #0b0b0b;
+
+  padding: 40px;
+
+  border-radius: 20px;
+
+  border: 1px solid #39ff14;
+
+  box-shadow: 0 0 25px rgba(57, 255, 20, 0.3);
+}
+
+.vip-card h3 {
+  color: #39ff14;
+
+  font-size: 30px;
+}
+
+.vip-card li {
+  list-style: none;
+
+  color: white;
+
+  margin: 20px 0;
+}
