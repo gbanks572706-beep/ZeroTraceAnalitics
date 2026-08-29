@@ -24,3 +24,5 @@ Thumbs.db
 *.temp
 # Local backup
 client_backup/
+# Database backups
+*.dump
