@@ -250,7 +250,11 @@ const predictionList = document.getElementById("predictionList");
 
 async function loadPredictions() {
   try {
-    const response = await fetch(`${API_URL}/api/predictions`);
+    const response = await fetch(`${API_URL}/api/predictions`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
 
     const predictions = await response.json();
 
