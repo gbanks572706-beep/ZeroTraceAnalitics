@@ -20,6 +20,7 @@ const historyRoutes = require("./routes/historyRoutes");
 const paymentRoutes = require("./routes/paymentRoutes");
 const paymentVerificationRoutes = require("./routes/paymentVerificationRoutes");
 const paystackWebhookRoutes = require("./routes/paystackWebhookRoutes");
+const manualPaymentRoutes = require("./routes/manualPaymentRoutes");
 
 const PORT = process.env.PORT || 5000;
 
@@ -69,6 +70,9 @@ app.use("/api/payments", paymentRoutes);
 app.use("/api/payment-verification", paymentVerificationRoutes);
 
 app.use("/api/paystack-webhook", paystackWebhookRoutes);
+
+app.use("/api/manual-payments", manualPaymentRoutes);
+
 
 app.use("/api/history", historyRoutes);
 

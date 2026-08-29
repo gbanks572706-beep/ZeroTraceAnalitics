@@ -65,67 +65,76 @@ async function loadVipPlans() {
     plansContainer.innerHTML = "";
 
     plans.forEach((plan) => {
+      // ================================
       // CHECK IF USER OWNS THIS PLAN
+      // ================================
 
       const subscribedPlan = userSubscriptions.find(
         (sub) => Number(sub.id) === Number(plan.section_id),
       );
 
-      let buttonText = "Subscribe";
-
-      let buttonAction = `subscribeVip(${plan.id})`;
-
       let expiry = "";
-
-      if (subscribedPlan) {
-        const expiryDate = new Date(subscribedPlan.expiry_date);
-
-        if (expiryDate > new Date()) {
-          buttonText = "OPEN VIP";
-
-          expiry = `
-                    <p>
-                    Expires:
-                    ${expiryDate.toDateString()}
-                    </p>
-                    `;
-
-          buttonAction = `
-    openVip(${plan.section_id})
-`;
-        }
-      }
 
       const card = document.createElement("div");
 
       card.className = "plan-card";
 
-      // Plan name
+      // ================================
+      // PLAN NAME
+      // ================================
+
       const planTitle = document.createElement("h3");
+
       planTitle.textContent = plan.section_name || "VIP Access";
 
-      // Price
+      card.appendChild(planTitle);
+
+      // ================================
+      // PRICE
+      // ================================
+
       const price = document.createElement("h2");
+
       price.textContent = `GH₵${plan.price}`;
 
-      // Duration
+      card.appendChild(price);
+
+      // ================================
+      // DURATION
+      // ================================
+
       const duration = document.createElement("p");
+
       duration.textContent = `${plan.duration_days} Days Access`;
 
-      card.appendChild(planTitle);
-      card.appendChild(price);
       card.appendChild(duration);
 
-      // Expiry
-      if (expiry) {
-        const expiryContainer = document.createElement("div");
+      // ================================
+      // ACTIVE SUBSCRIPTION
+      // ================================
 
-        expiryContainer.innerHTML = expiry;
+      if (subscribedPlan) {
+        const expiryDate = new Date(subscribedPlan.expiry_date);
 
-        card.appendChild(expiryContainer);
+        if (expiryDate > new Date()) {
+          expiry = `
+            <p>
+              Expires: ${expiryDate.toDateString()}
+            </p>
+          `;
+
+          const expiryContainer = document.createElement("div");
+
+          expiryContainer.innerHTML = expiry;
+
+          card.appendChild(expiryContainer);
+        }
       }
 
-      // Features
+      // ================================
+      // FEATURES
+      // ================================
+
       const featuresList = document.createElement("ul");
 
       const features = [
@@ -144,22 +153,59 @@ async function loadVipPlans() {
 
       card.appendChild(featuresList);
 
-      // Subscribe / Open VIP button
-      const button = document.createElement("button");
-
-      button.textContent = buttonText;
+      // ================================
+      // ACTIVE VIP
+      // ================================
 
       if (subscribedPlan) {
-        button.addEventListener("click", () => {
-          openVip(plan.section_id);
-        });
-      } else {
-        button.addEventListener("click", () => {
-          subscribeVip(plan.id);
-        });
+        const expiryDate = new Date(subscribedPlan.expiry_date);
+
+        if (expiryDate > new Date()) {
+          const openButton = document.createElement("button");
+
+          openButton.textContent = "OPEN VIP";
+
+          openButton.addEventListener("click", () => {
+            openVip(plan.section_id);
+          });
+
+          card.appendChild(openButton);
+
+          plansContainer.appendChild(card);
+
+          return;
+        }
       }
 
-      card.appendChild(button);
+      // ================================
+      // PAYSTACK BUTTON
+      // ================================
+
+      const paystackButton = document.createElement("button");
+
+      paystackButton.textContent = "Pay with Paystack";
+
+      paystackButton.addEventListener("click", () => {
+        subscribeVip(plan.id);
+      });
+
+      card.appendChild(paystackButton);
+
+      // ================================
+      // MANUAL PAYMENT BUTTON
+      // ================================
+
+      const manualButton = document.createElement("button");
+
+      manualButton.textContent = "Pay Manually";
+
+      manualButton.className = "manual-payment-btn";
+
+      manualButton.addEventListener("click", () => {
+        openManualPayment(plan);
+      });
+
+      card.appendChild(manualButton);
 
       plansContainer.appendChild(card);
     });
@@ -167,19 +213,38 @@ async function loadVipPlans() {
     console.log(error);
 
     plansContainer.innerHTML = `
-        <p>
+      <p>
         Unable to load VIP plans
-        </p>
-        `;
+      </p>
+    `;
   }
 }
 
 // ================================
-// SUBSCRIBE
+// PAYSTACK SUBSCRIBE
 // ================================
 
 function subscribeVip(planId) {
   initializeVipPayment(planId);
+}
+
+// ================================
+// MANUAL PAYMENT
+// ================================
+
+function openManualPayment(plan) {
+  localStorage.setItem(
+    "manualPaymentPlan",
+    JSON.stringify({
+      plan_id: plan.id,
+      section_id: plan.section_id,
+      section_name: plan.section_name,
+      price: plan.price,
+      duration_days: plan.duration_days,
+    }),
+  );
+
+  window.location.href = "manual-payment.html";
 }
 
 // ================================

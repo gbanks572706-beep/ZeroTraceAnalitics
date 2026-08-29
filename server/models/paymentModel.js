@@ -26,7 +26,7 @@ const createPayment = async (
     )
 
     VALUES
-    ($1, $2, $3, $4, 'GHS', 'pending', 'paystack', $5)
+($1, $2, $3, $4, 'GHS', 'pending', 'manual', $5)
 
     RETURNING *
     `,

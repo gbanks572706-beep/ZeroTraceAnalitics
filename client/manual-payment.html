@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Manual VIP Payment | ZeroTrace Analytics</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <header class="dashboard-header">
+      <div class="logo">ZERO<span>TRACE</span></div>
+
+      <a href="vip-subscription.html" class="back-btn"> Back to VIP Plans </a>
+    </header>
+
+    <main>
+      <section class="vip-hero">
+        <h1>👑 Manual VIP Payment</h1>
+
+        <p>
+          Make your payment using the details below, then submit your payment
+          information for verification.
+        </p>
+      </section>
+
+      <section class="subscription-container">
+        <div class="plan-card">
+          <h2>Payment Details</h2>
+
+          <p><strong>Payment Method:</strong> Mobile Money</p>
+
+          <p><strong>Number:</strong> YOUR PAYMENT NUMBER</p>
+
+          <p><strong>Name:</strong> YOUR NAME</p>
+
+          <hr />
+
+          <form id="manualPaymentForm">
+            <label for="plan_id">VIP Plan</label>
+
+            <select id="plan_id" required>
+              <option value="">Select VIP Plan</option>
+            </select>
+
+            <label for="payment_name"> Name used for payment </label>
+
+            <input
+              type="text"
+              id="payment_name"
+              placeholder="Enter the name used to make payment"
+              required
+            />
+
+            <label for="reference"> Payment Reference </label>
+
+            <input
+              type="text"
+              id="reference"
+              placeholder="Enter your payment reference"
+              required
+            />
+
+            <label for="notes"> Additional information </label>
+
+            <textarea id="notes" placeholder="Optional"></textarea>
+
+            <button type="submit">Submit Payment</button>
+          </form>
+
+          <p id="paymentMessage"></p>
+        </div>
+      </section>
+    </main>
+
+    <script src="js/config.js"></script>
+    <script src="js/manual-payment.js"></script>
+  </body>
+</html>
