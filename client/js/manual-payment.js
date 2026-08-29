@@ -106,6 +106,10 @@ form.addEventListener("submit", async (event) => {
       "Payment submitted successfully. Please wait for verification.";
 
     form.reset();
+
+    setTimeout(() => {
+      window.location.href = "vip-subscription.html";
+    }, 1500);
   } catch (error) {
     console.error("MANUAL PAYMENT ERROR:", error);
 

@@ -1,55 +1,579 @@
-/* =================================
-ZERO TRACE ANALYTICS
-GLOBAL BRAND STYLE
-================================= */
+/* =========================================================
+   ZERO TRACE ANALYTICS
+   MASTER DESIGN SYSTEM
+   =========================================================
+   
+   This file is the GLOBAL design system for ZeroTrace.
 
-* {
+   Page-specific styles should consume these variables
+   instead of creating a completely different visual system.
+
+   Brand:
+   Primary   → Cyan
+   Secondary → Purple
+   Background → Near Black
+
+   ========================================================= */
+
+/* =========================================================
+   1. DESIGN TOKENS
+   ========================================================= */
+
+:root {
+  /* -------------------------------------------------------
+     BRAND COLORS
+  ------------------------------------------------------- */
+
+  --primary: #00e5ff;
+  --secondary: #7c3aed;
+
+  --primary-dark: #00b8d4;
+  --secondary-light: #a78bfa;
+
+  /* -------------------------------------------------------
+     BACKGROUNDS
+  ------------------------------------------------------- */
+
+  --dark: #050505;
+  --dark-soft: #080808;
+
+  --card: #0f0f0f;
+  --card-hover: #141414;
+
+  --surface: #111111;
+  --surface-light: #181818;
+
+  /* -------------------------------------------------------
+     TEXT
+  ------------------------------------------------------- */
+
+  --text: #ffffff;
+  --text-soft: #e5e5e5;
+  --muted: #999999;
+  --muted-dark: #666666;
+
+  /* -------------------------------------------------------
+     BORDERS
+  ------------------------------------------------------- */
+
+  --border: rgba(255, 255, 255, 0.08);
+  --border-light: rgba(255, 255, 255, 0.14);
+  --border-strong: rgba(255, 255, 255, 0.24);
+
+  --border-primary: rgba(0, 229, 255, 0.35);
+  --border-secondary: rgba(124, 58, 237, 0.35);
+
+  /* -------------------------------------------------------
+     BRAND TINTS
+  ------------------------------------------------------- */
+
+  --primary-soft: rgba(0, 229, 255, 0.08);
+  --primary-medium: rgba(0, 229, 255, 0.14);
+
+  --secondary-soft: rgba(124, 58, 237, 0.08);
+  --secondary-medium: rgba(124, 58, 237, 0.14);
+
+  /* -------------------------------------------------------
+     GLOWS
+  ------------------------------------------------------- */
+
+  --glow: 0 0 20px rgba(0, 229, 255, 0.35);
+
+  --glow-strong: 0 0 30px rgba(0, 229, 255, 0.45);
+
+  --glow-purple: 0 0 20px rgba(124, 58, 237, 0.35);
+
+  --glow-purple-strong: 0 0 30px rgba(124, 58, 237, 0.45);
+
+  /* -------------------------------------------------------
+     STATUS COLORS
+  ------------------------------------------------------- */
+
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+
+  /* -------------------------------------------------------
+     TYPOGRAPHY
+  ------------------------------------------------------- */
+
+  --font-main:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+
+  --font-mono: "SF Mono", "JetBrains Mono", "Fira Code", Consolas, monospace;
+
+  /* -------------------------------------------------------
+     BORDER RADIUS
+  ------------------------------------------------------- */
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 22px;
+
+  --radius-pill: 999px;
+
+  /* -------------------------------------------------------
+     SPACING
+  ------------------------------------------------------- */
+
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+
+  /* -------------------------------------------------------
+     SHADOWS
+  ------------------------------------------------------- */
+
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.25);
+
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.35);
+
+  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.5);
+
+  /* -------------------------------------------------------
+     TRANSITIONS
+  ------------------------------------------------------- */
+
+  --transition-fast: 150ms ease;
+  --transition-normal: 220ms ease;
+  --transition-slow: 350ms ease;
+
+  /* -------------------------------------------------------
+     LAYOUT
+  ------------------------------------------------------- */
+
+  --container-width: 1200px;
+
+  --navbar-height: 70px;
+
+  /* -------------------------------------------------------
+     Z-INDEX
+  ------------------------------------------------------- */
+
+  --z-dropdown: 100;
+  --z-sticky: 500;
+  --z-overlay: 1000;
+  --z-modal: 2000;
+}
+
+/* =========================================================
+   2. GLOBAL RESET
+   ========================================================= */
+
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", sans-serif;
+}
+
+/* =========================================================
+   3. HTML / BODY
+   ========================================================= */
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: #050505;
-  color: white;
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at 10% 0%,
+      rgba(0, 229, 255, 0.025),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 90% 10%,
+      rgba(124, 58, 237, 0.025),
+      transparent 35%
+    ),
+    var(--dark);
+
+  color: var(--text);
+
+  font-family: var(--font-main);
+
+  line-height: 1.6;
+
+  overflow-x: hidden;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-:root {
-  --primary: #00e5ff;
-  --secondary: #7c3aed;
-  --dark: #050505;
-  --card: #0f0f0f;
-  --text: #ffffff;
-  --muted: #999;
+/* =========================================================
+   4. IMAGES
+   ========================================================= */
 
-  --glow: 0 0 20px rgba(0, 229, 255, 0.35);
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
-button {
-  transition: 0.3s ease;
-}
-
-button:hover {
-  transform: translateY(-3px);
-}
+/* =========================================================
+   5. LINKS
+   ========================================================= */
 
 a {
   color: var(--primary);
   text-decoration: none;
+
+  transition:
+    color var(--transition-fast),
+    opacity var(--transition-fast);
 }
 
-/* ==============================
-   MOBILE RESPONSIVE DESIGN
-   ZERO TRACE ANALYTICS
-============================== */
+a:hover {
+  color: var(--primary-dark);
+}
+
+/* =========================================================
+   6. HEADINGS
+   ========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text);
+  line-height: 1.2;
+}
+
+/* =========================================================
+   7. BUTTONS
+   ========================================================= */
+
+button {
+  font-family: inherit;
+
+  cursor: pointer;
+
+  border: none;
+
+  transition:
+    transform var(--transition-fast),
+    background var(--transition-fast),
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    color var(--transition-fast);
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* =========================================================
+   8. FORM ELEMENTS
+   ========================================================= */
+
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--muted-dark);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+}
+
+/* =========================================================
+   9. GLOBAL FOCUS ACCESSIBILITY
+   ========================================================= */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* =========================================================
+   10. STANDARD CONTAINER
+   ========================================================= */
+
+.container {
+  width: 100%;
+
+  max-width: var(--container-width);
+
+  margin-left: auto;
+  margin-right: auto;
+
+  padding-left: var(--space-lg);
+  padding-right: var(--space-lg);
+}
+
+/* =========================================================
+   11. STANDARD CARD
+   ========================================================= */
+
+.card {
+  background: var(--card);
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-sm);
+
+  transition:
+    transform var(--transition-normal),
+    border-color var(--transition-normal),
+    box-shadow var(--transition-normal);
+}
+
+.card:hover {
+  border-color: var(--border-primary);
+
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   12. STANDARD PRIMARY BUTTON
+   ========================================================= */
+
+.btn-primary {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: var(--space-sm);
+
+  padding: 11px 20px;
+
+  border-radius: var(--radius-sm);
+
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+
+  color: #00161a;
+
+  font-weight: 700;
+
+  border: 1px solid transparent;
+}
+
+.btn-primary:hover {
+  color: #00161a;
+
+  box-shadow: var(--glow);
+
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   13. STANDARD SECONDARY BUTTON
+   ========================================================= */
+
+.btn-secondary {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: var(--space-sm);
+
+  padding: 11px 20px;
+
+  border-radius: var(--radius-sm);
+
+  background: var(--secondary-soft);
+
+  color: var(--secondary-light);
+
+  border: 1px solid var(--border-secondary);
+
+  font-weight: 600;
+}
+
+.btn-secondary:hover {
+  background: var(--secondary-medium);
+
+  border-color: var(--secondary);
+
+  color: #ffffff;
+
+  box-shadow: var(--glow-purple);
+}
+
+/* =========================================================
+   14. STANDARD INPUT
+   ========================================================= */
+
+.input {
+  width: 100%;
+
+  padding: 12px 14px;
+
+  background: var(--dark-soft);
+
+  color: var(--text);
+
+  border: 1px solid var(--border-strong);
+
+  border-radius: var(--radius-sm);
+
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.input:hover {
+  border-color: var(--border-strong);
+}
+
+.input:focus {
+  border-color: var(--primary);
+
+  box-shadow: 0 0 0 3px var(--primary-soft);
+}
+
+/* =========================================================
+   15. STANDARD BADGES
+   ========================================================= */
+
+.badge {
+  display: inline-flex;
+
+  align-items: center;
+
+  padding: 4px 10px;
+
+  border-radius: var(--radius-pill);
+
+  font-size: 0.72rem;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.04em;
+}
+
+.badge-success {
+  background: rgba(34, 197, 94, 0.12);
+
+  color: var(--success);
+
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.badge-warning {
+  background: rgba(245, 158, 11, 0.12);
+
+  color: var(--warning);
+
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.badge-danger {
+  background: rgba(239, 68, 68, 0.12);
+
+  color: var(--danger);
+
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+/* =========================================================
+   16. BRAND TEXT
+   ========================================================= */
+
+.brand-text {
+  color: var(--primary);
+
+  text-shadow: 0 0 16px rgba(0, 229, 255, 0.35);
+}
+
+.brand-gradient {
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+}
+
+/* =========================================================
+   17. STANDARD DIVIDER
+   ========================================================= */
+
+.divider {
+  width: 100%;
+
+  height: 1px;
+
+  background: var(--border);
+
+  margin: var(--space-lg) 0;
+}
+
+/* =========================================================
+   18. SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 229, 255, 0.25);
+
+  border-radius: var(--radius-pill);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 229, 255, 0.45);
+}
+
+/* =========================================================
+   19. MOBILE — GLOBAL
+   ========================================================= */
 
 @media (max-width: 768px) {
   body {
     overflow-x: hidden;
   }
 
-  /* NAVBAR */
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 
   .navbar {
     padding: 15px 20px;
@@ -57,7 +581,9 @@ a {
 
   .nav-links {
     gap: 15px;
+
     flex-wrap: wrap;
+
     justify-content: center;
   }
 
@@ -65,13 +591,9 @@ a {
     font-size: 14px;
   }
 
-  /* LOGO */
-
   .logo {
     font-size: 22px;
   }
-
-  /* MAIN SECTIONS */
 
   .tips-page {
     padding: 30px 15px;
@@ -82,39 +604,43 @@ a {
     text-align: center;
   }
 
-  /* BUTTON GROUPS */
-
   .tip-buttons {
     display: flex;
+
     flex-wrap: wrap;
+
     justify-content: center;
+
     gap: 10px;
   }
 
   .tip-buttons button {
     width: auto;
+
     min-width: 120px;
   }
 
-  /* DATE BUTTON */
-
   .date-selector {
     display: flex;
+
     justify-content: center;
+
     margin: 20px 0;
   }
 
-  /* PREDICTION CARDS */
-
   .prediction-card {
     width: 100%;
+
     padding: 20px;
   }
 
   .teams {
     display: flex;
+
     flex-direction: column;
+
     text-align: center;
+
     gap: 8px;
   }
 
@@ -124,11 +650,11 @@ a {
 
   .details {
     display: grid;
+
     grid-template-columns: 1fr;
+
     gap: 15px;
   }
-
-  /* VIP SUMMARY */
 
   .vip-summary {
     width: 100%;
@@ -138,10 +664,48 @@ a {
     width: 100%;
   }
 
-  /* FOOTER */
-
   .footer {
     text-align: center;
+
     padding: 25px 15px;
+  }
+}
+
+/* =========================================================
+   20. SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 380px) {
+  .container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  button {
+    max-width: 100%;
+  }
+}
+
+/* =========================================================
+   21. REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
   }
 }
