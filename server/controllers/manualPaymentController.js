@@ -1,5 +1,6 @@
 const paymentModel = require("../models/paymentModel");
 const vipSectionPlanModel = require("../models/vipSectionPlanModel");
+const vipSectionSubscriptionModel = require("../models/vipSectionSubscriptionModel");
 
 // =================================
 // SUBMIT MANUAL VIP PAYMENT

@@ -55,6 +55,24 @@ const getPaymentByReference = async (reference) => {
 };
 
 // =================================
+// FIND PAYMENT BY ID
+// =================================
+
+const getPaymentById = async (paymentId) => {
+  const result = await db.query(
+    `
+    SELECT *
+    FROM payments
+    WHERE id = $1
+    LIMIT 1
+    `,
+    [paymentId],
+  );
+
+  return result.rows[0];
+};
+
+// =================================
 // MARK PAYMENT AS SUCCESSFUL
 // =================================
 
@@ -166,6 +184,7 @@ const updatePaymentStatus = async (
 module.exports = {
   createPayment,
   getPaymentByReference,
+  getPaymentById,
   markPaymentSuccessful,
   getPendingManualPayments,
   updatePaymentStatus,

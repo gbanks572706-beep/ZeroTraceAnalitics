@@ -18,6 +18,11 @@ const {
 
 const { getVipUsers } = require("../controllers/vipAdminController");
 
+const {
+  getPendingManualPayments,
+  updateManualPaymentStatus,
+} = require("../controllers/manualPaymentController");
+
 const { protect, adminOnly } = require("../middleware/authMiddleware");
 
 // Protected admin dashboard route
@@ -54,5 +59,18 @@ router.get("/vip-users", protect, adminOnly, getVipUsers);
 router.put("/vip-users/:id/cancel", protect, adminOnly, cancelVipSubscription);
 
 router.put("/vip-users/:id/extend", protect, adminOnly, extendVipSubscription);
+
+// ==============================
+// MANUAL PAYMENT MANAGEMENT
+// ==============================
+
+router.get("/manual-payments", protect, adminOnly, getPendingManualPayments);
+
+router.put(
+  "/manual-payments/:id",
+  protect,
+  adminOnly,
+  updateManualPaymentStatus,
+);
 
 module.exports = router;
