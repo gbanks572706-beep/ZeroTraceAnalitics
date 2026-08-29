@@ -1,0 +1,183 @@
+/* =================================
+   ZERO TRACE ANALYTICS
+   MANUAL VIP PAYMENT PAGE
+================================= */
+
+.manual-payment-page {
+  min-height: 100vh;
+  background: #050b14;
+  color: #ffffff;
+}
+
+/* ================================
+   PAYMENT CONTAINER
+================================ */
+
+.manual-payment-container {
+  width: min(900px, 92%);
+  margin: 40px auto 80px;
+}
+
+/* ================================
+   PAYMENT CARD
+================================ */
+
+.manual-payment-card {
+  background: #0b1422;
+  border: 1px solid rgba(0, 174, 255, 0.2);
+  border-radius: 18px;
+  padding: 30px;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.35);
+}
+
+/* ================================
+   PAYMENT DETAILS
+================================ */
+
+.payment-details {
+  margin-bottom: 30px;
+}
+
+.payment-details h2 {
+  margin-bottom: 20px;
+  color: #00aeff;
+}
+
+.payment-option {
+  background: #101d2e;
+  border: 1px solid rgba(0, 174, 255, 0.15);
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 15px;
+}
+
+.payment-option h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.payment-option p {
+  margin: 6px 0;
+  color: #c7d3df;
+}
+
+.payment-note {
+  color: #aebdca;
+  line-height: 1.6;
+}
+
+/* ================================
+   DIVIDER
+================================ */
+
+.manual-payment-card hr {
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 30px 0;
+}
+
+/* ================================
+   FORM
+================================ */
+
+#manualPaymentForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#manualPaymentForm label {
+  margin-top: 8px;
+  font-weight: 600;
+  color: #dce8f2;
+}
+
+#manualPaymentForm input,
+#manualPaymentForm select,
+#manualPaymentForm textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 14px;
+  border: 1px solid rgba(0, 174, 255, 0.2);
+  border-radius: 9px;
+  background: #07101c;
+  color: #ffffff;
+  font-size: 15px;
+  outline: none;
+}
+
+#manualPaymentForm input:focus,
+#manualPaymentForm select:focus,
+#manualPaymentForm textarea:focus {
+  border-color: #00aeff;
+  box-shadow: 0 0 0 3px rgba(0, 174, 255, 0.08);
+}
+
+#manualPaymentForm textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+/* ================================
+   SUBMIT BUTTON
+================================ */
+
+#manualPaymentForm button {
+  margin-top: 15px;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 9px;
+  background: #00aeff;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+#manualPaymentForm button:hover {
+  background: #008fd1;
+  transform: translateY(-1px);
+}
+
+/* ================================
+   MESSAGE
+================================ */
+
+#paymentMessage {
+  margin-top: 20px;
+  text-align: center;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 600px) {
+  .manual-payment-container {
+    width: 94%;
+    margin: 25px auto 50px;
+  }
+
+  .manual-payment-card {
+    padding: 20px;
+    border-radius: 14px;
+  }
+
+  .payment-option {
+    padding: 15px;
+  }
+
+  #manualPaymentForm input,
+  #manualPaymentForm select,
+  #manualPaymentForm textarea {
+    font-size: 16px;
+  }
+
+  #manualPaymentForm button {
+    width: 100%;
+  }
+}

@@ -32,6 +32,8 @@ async function loadVipPlans() {
       throw new Error("Unable to load VIP plans");
     }
 
+    const savedPlan = JSON.parse(localStorage.getItem("manualPaymentPlan"));
+
     plans.forEach((plan) => {
       const option = document.createElement("option");
 
@@ -41,6 +43,11 @@ async function loadVipPlans() {
 
       planSelect.appendChild(option);
     });
+
+    // Automatically select the plan the user chose
+    if (savedPlan && savedPlan.plan_id) {
+      planSelect.value = savedPlan.plan_id;
+    }
   } catch (error) {
     console.error("VIP PLAN ERROR:", error);
 
