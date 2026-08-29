@@ -178,18 +178,12 @@ async function loadVipPlans() {
       }
 
       // ================================
-      // PAYSTACK BUTTON
+      // PAYSTACK TEMPORARILY DISABLED
       // ================================
 
-      const paystackButton = document.createElement("button");
-
-      paystackButton.textContent = "Pay with Paystack";
-
-      paystackButton.addEventListener("click", () => {
-        subscribeVip(plan.id);
-      });
-
-      card.appendChild(paystackButton);
+      // Paystack payments are temporarily disabled.
+      // Users must use manual payment until Paystack
+      // verification is fully secured.
 
       // ================================
       // MANUAL PAYMENT BUTTON
