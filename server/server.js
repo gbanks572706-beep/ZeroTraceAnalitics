@@ -29,7 +29,7 @@ app.use(helmet());
 // CORS
 app.use(
   cors({
-    origin: "http://127.0.0.1:5500",
+    origin: process.env.FRONTEND_URL,
     credentials: true,
   }),
 );
